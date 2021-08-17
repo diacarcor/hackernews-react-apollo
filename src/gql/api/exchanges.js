@@ -1,5 +1,5 @@
 import {
-    EXCHANGE_RATES_USD, EXCHANGE_RATES_EUR
+    EXCHANGE_RATES_USD, EXCHANGE_RATES_EUR, REPORTS
   } from '../queries/exchanges_queries';
 
   import {
@@ -37,4 +37,23 @@ export function ExchangeRatesUSD() {
       </div>
     ));
   }
+
+
+    
+  //Function to call query
+ export function GetReportDetail() {
+  const { loading, error, data } = useQuery(REPORTS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+
+  return data.reports.data.map(({ id, name }) => (
+    <div key={id}>
+      <p>
+        {id}: {name}
+      </p>
+    </div>
+  ));
+}
+
   

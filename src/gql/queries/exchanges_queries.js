@@ -21,3 +21,16 @@ export const EXCHANGE_RATES_EUR = gql`
     }
   }
 `;
+
+export const REPORTS = gql`
+query {
+    reports(accountId: 62) {
+         data{
+                id,
+                name, 
+               
+
+              }
+      }
+}
+`;
